@@ -5,38 +5,38 @@ import java.util.List;
 
 /**
  * 
- * @author Íõ¼ÎÏé 16130120131 752097910@qq.com
+ * @author 752097910@qq.com
  *
  */
 
 class Course {
-	//¿Î³ÌÃû³ÆcName ¿Î³ÌËùĞè½Ì²ÄÁĞ±íbook
+	//è¯¾ç¨‹åç§°cName è¯¾ç¨‹æ‰€éœ€æ•™æåˆ—è¡¨book
 	private String cName;
 	private List<String> book = new ArrayList<String>();
 	Course(String cou){
-		//¹¹Ôìº¯Êı
+		//æ„é€ å‡½æ•°
 		this.cName = cou;
 		Book e = new Book(cou);
 		book = e.getBook();
 	}
 	String getCouName(){
-		//»ñÈ¡¿Î³ÌÃû³Æ ·µ»ØStringÀàĞÍ±äÁ¿
+		//è·å–è¯¾ç¨‹åç§° è¿”å›Stringç±»å‹å˜é‡
 		return this.cName;
 	}
 	List<String> getBookOfCou(){
-		//»ñÈ¡¸Ã¿Î³ÌËùĞè½Ì²Ä ·µ»ØList<String>ÀàĞÍ±äÁ¿
+		//è·å–è¯¥è¯¾ç¨‹æ‰€éœ€æ•™æ è¿”å›List<String>ç±»å‹å˜é‡
 		return this.book;
 	}
 }
 
 class Book {
-	//List<String>ÀàĞÍ´æ´¢½Ì²Ä
+	//List<String>ç±»å‹å­˜å‚¨æ•™æ
 	private List<String> book = new ArrayList<String>();
 	
-	//Ò»ÃÅ¿Î³ÌµÄ½Ì²Ä ¹¹Ôìº¯Êı
+	//ä¸€é—¨è¯¾ç¨‹çš„æ•™æ æ„é€ å‡½æ•°
 	Book(String c){
 		
-		//¸ù¾İ²»Í¬¿Î³Ì´æ´¢²»Í¬µÄÊé¼®
+		//æ ¹æ®ä¸åŒè¯¾ç¨‹å­˜å‚¨ä¸åŒçš„ä¹¦ç±
 		switch(c){
 		case "Java":
 			book.add("Thinking in Java");book.add("java 8");
@@ -47,21 +47,21 @@ class Book {
 		case "C++":
 			book.add("C++ Primer");
 			break;
-			//»¹¿É¼ÌĞøÔö¼ÓĞÂµÄÑ¡Ïî
+			//è¿˜å¯ç»§ç»­å¢åŠ æ–°çš„é€‰é¡¹
 		default:
 			book.add("other books");
 			break;
 		}
 				
 	}
-	//»ñÈ¡Ò»ÃÅ¿Î³ÌµÄÊé¼®ÁĞ±í
+	//è·å–ä¸€é—¨è¯¾ç¨‹çš„ä¹¦ç±åˆ—è¡¨
 	List<String> getBook(){
 		return this.book;
 	}
 	
 }
 
-//StudentÀà£¬SIDÎªÑ§ºÅ£¬List<Course> course´æ´¢¸ÃÑ§ÉúÑ¡µÄ¿Î³Ì
+//Studentç±»ï¼ŒSIDä¸ºå­¦å·ï¼ŒList<Course> courseå­˜å‚¨è¯¥å­¦ç”Ÿé€‰çš„è¯¾ç¨‹
 class Student {
 	private String sID;
 	private List<Course> course = new ArrayList<Course>();
@@ -70,42 +70,42 @@ class Student {
 		System.out.println("haven't students!");
 	}
 	
-	//Ö»ÓĞÑ§ºÅ£¬Ã»ÓĞÑ¡¿Î
+	//åªæœ‰å­¦å·ï¼Œæ²¡æœ‰é€‰è¯¾
 	Student(String stuNum){
 		this.sID = stuNum;
 		System.out.println(sID + " hasn't course");
 	}
 	
-	//²ÎÊıÎª×Ö·û´®Êı×éµÄ¹¹Ôìº¯Êı
+	//å‚æ•°ä¸ºå­—ç¬¦ä¸²æ•°ç»„çš„æ„é€ å‡½æ•°
 	Student(String[] s){
-		//Ö»ÓĞÑ§ºÅ
+		//åªæœ‰å­¦å·
 		if(s.length == 1){
 			this.sID = s[0];
 			System.out.println(sID + " hasn't course");
-		}//Í¬Ê±Ìá¹©Ñ§ºÅÓë¿Î³Ì
+		}//åŒæ—¶æä¾›å­¦å·ä¸è¯¾ç¨‹
 		else{
 			this.sID = s[0];
-			//tempÊı×é´æ´¢ËùÓĞ¿Î³ÌµÄ×Ö·û´®£¬¼´sÊı×é³ıÈ¥µÚÒ»¸öÔªËØ£¬ÆäÓàÇ°ÒÆÒ»Î»
+			//tempæ•°ç»„å­˜å‚¨æ‰€æœ‰è¯¾ç¨‹çš„å­—ç¬¦ä¸²ï¼Œå³sæ•°ç»„é™¤å»ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œå…¶ä½™å‰ç§»ä¸€ä½
 			String[] temp = new String[s.length-1];
 			for(int i = 0; i < s.length-1; i++)
 				temp[i] = s[i+1];
-			//Ã¿Ò»¸ö¿Î³ÌÉú³ÉÒ»¸ö¿Î³Ì¶ÔÏó£¬²¢Ìí¼ÓÔÚcourseÁĞ±íÊı×éÖĞ
+			//æ¯ä¸€ä¸ªè¯¾ç¨‹ç”Ÿæˆä¸€ä¸ªè¯¾ç¨‹å¯¹è±¡ï¼Œå¹¶æ·»åŠ åœ¨courseåˆ—è¡¨æ•°ç»„ä¸­
 			for(String x:temp){
 				Course c = new Course(x);
 				course.add(c);
 			}
 			
-			//µÚÒ»ÃÅ¿Î³Ì´òÓ¡
+			//ç¬¬ä¸€é—¨è¯¾ç¨‹æ‰“å°
 			System.out.print(sID + " select " + course.get(0).getCouName() 
 			+ " with books ");
-			//µÚÒ»ÃÅ¿Î³ÌµÄËùÓĞ½Ì²Ä
+			//ç¬¬ä¸€é—¨è¯¾ç¨‹çš„æ‰€æœ‰æ•™æ
 			for(int i = 0; i < course.get(0).getBookOfCou().size(); i++){
 				System.out.print(course.get(0).getBookOfCou().get(i));
 				if(i != course.get(0).getBookOfCou().size()-1)
 					System.out.print(",");
 			}
 			if(course.size() > 1){
-				//´ÓµÚ¶şÃÅ¿Î³Ì¿ªÊ¼´òÓ¡
+				//ä»ç¬¬äºŒé—¨è¯¾ç¨‹å¼€å§‹æ‰“å°
 				for(int j = 1; j < course.size(); j++){
 					System.out.print(";and " + course.get(j).getCouName() + " with books ");
 					for(int k = 0; k < course.get(j).getBookOfCou().size(); k++)
@@ -118,24 +118,24 @@ class Student {
 		}
 	}
 	
-	//²ÎÊıÎªÑ§ºÅÓë¿Î³ÌµÄStudentÀà
+	//å‚æ•°ä¸ºå­¦å·ä¸è¯¾ç¨‹çš„Studentç±»
 	Student(String stuNum, String... couName) {
 		this.sID = stuNum;
 		for(String x:couName){
 			Course c = new Course(x);
 			course.add(c);
 		}
-		//µÚÒ»ÃÅ¿Î³Ì´òÓ¡
+		//ç¬¬ä¸€é—¨è¯¾ç¨‹æ‰“å°
 		System.out.print(sID + " select " + course.get(0).getCouName() 
 		+ " with books ");
-		//´òÓ¡µÚÒ»ÃÅ¿Î³ÌµÄËùÓĞ½Ì²Ä
+		//æ‰“å°ç¬¬ä¸€é—¨è¯¾ç¨‹çš„æ‰€æœ‰æ•™æ
 		for(int i = 0; i < course.get(0).getBookOfCou().size(); i++){
 			System.out.print(course.get(0).getBookOfCou().get(i));
 			if(i != course.get(0).getBookOfCou().size()-1)
 				System.out.print(",");
 		}
 		if(course.size() > 1){
-			//´ÓµÚ¶şÃÅ¿Î³Ì¿ªÊ¼´òÓ¡
+			//ä»ç¬¬äºŒé—¨è¯¾ç¨‹å¼€å§‹æ‰“å°
 			for(int j = 1; j < course.size(); j++){
 				System.out.print(";and " + course.get(j).getCouName() + " with books ");
 				for(int k = 0; k < course.get(j).getBookOfCou().size(); k++)
@@ -159,12 +159,12 @@ class Student {
 public class CSS {
 
 	public static void main(String[] args) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		Student stu0 = new Student(args);
 		
 		
 		/*
-		 * ²âÊÔ´úÂë
+		 * æµ‹è¯•ä»£ç 
 		String[] arg = new String[]{"1613","Java","C++"};
 		Student stu = new Student(arg);
 		Student stu1 = new Student("1613");

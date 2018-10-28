@@ -1,24 +1,24 @@
 package homework1;
 /**
  * 
- * @author Íõ¼ÎÏé 16130120131 752097910@qq.com
+ * @author  752097910@qq.com
  *
  */
 public class SumOfArgs {
 
 	public static void main(String[] args) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		
-		//numÎª´æ´¢ÃüÁîÐÐÖÐÊý×ÖµÄÁÙÊ±±äÁ¿£¬sum½«ËùÓÐÊý×ÖÇóºÍ
+		//numä¸ºå­˜å‚¨å‘½ä»¤è¡Œä¸­æ•°å­—çš„ä¸´æ—¶å˜é‡ï¼Œsumå°†æ‰€æœ‰æ•°å­—æ±‚å’Œ
 		int num, sum = 0;
 		
-		//½«args±éÀú
+		//å°†argséåŽ†
 		for(String x:args){	
 			
-			//µ±×Ö·ûÖ»ÓÐÔÚ0µ½9²Å½øÐÐÒÔÏÂ²Ù×÷
+			//å½“å­—ç¬¦åªæœ‰åœ¨0åˆ°9æ‰è¿›è¡Œä»¥ä¸‹æ“ä½œ
 			if(x.charAt(0) >= 48 && x.charAt(0) <= 57){	
 				
-				//½«×Ö·û×ª»»³ÉintÐÍ
+				//å°†å­—ç¬¦è½¬æ¢æˆintåž‹
 				num = Integer.parseInt(x);
 				sum += num;				
 				

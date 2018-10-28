@@ -2,18 +2,18 @@ package BankSystem;
 import java.util.ArrayList;
 /**
  * 
- * @author Íõ¼ÎÏé 16130120131 752097910@qq.com
+ * @author  752097910@qq.com
  * BankSystem program
  */
 public class BankAccount {
 	public String name;
 	protected double balance;
-	static int accNum = 0;//ÕË»§×ÜÊıÁ¿
+	static int accNum = 0;//è´¦æˆ·æ€»æ•°é‡
 	public ArrayList<String> record = new ArrayList<>();
 	
 	public BankAccount(String n, double iniBan) throws CheckingAccount {
-		//¹¹Ôìº¯Êı£¬²ÎÊıÎªÕË»§ĞÕÃûÓëÕË»§³õÊ¼Óà¶î
-		//´´½¨Ò»¸öÕË»§£¬×ÜÊıÁ¿¼ÓÒ»
+		//æ„é€ å‡½æ•°ï¼Œå‚æ•°ä¸ºè´¦æˆ·å§“åä¸è´¦æˆ·åˆå§‹ä½™é¢
+		//åˆ›å»ºä¸€ä¸ªè´¦æˆ·ï¼Œæ€»æ•°é‡åŠ ä¸€
 		name = n;
 		if(iniBan < 0)
 			throw new CheckingAccount("Error:balance can't constructed with a negative amount!");
@@ -21,41 +21,41 @@ public class BankAccount {
 		accNum++;
 	}
 	public void deposit(double money) throws CheckingDeposit{
-		//´æ¿îº¯Êı£¬½«½ğ¶îmoney¼ÓÈëµ½Óà¶îbalanceÖĞ
-		//Òì³£ÅĞ¶Ï£¬´æ¿î½ğ¶î²»¿ÉÎª¸ºÖµ
+		//å­˜æ¬¾å‡½æ•°ï¼Œå°†é‡‘é¢moneyåŠ å…¥åˆ°ä½™é¢balanceä¸­
+		//å¼‚å¸¸åˆ¤æ–­ï¼Œå­˜æ¬¾é‡‘é¢ä¸å¯ä¸ºè´Ÿå€¼
 		if(money < 0)
 			throw new CheckingDeposit("Error:a negative amount is deposited!");
 		
 		balance += money;
-		//µ÷ÓÃtransRecº¯Êı´æ´¢´æ¿î¼ÇÂ¼
+		//è°ƒç”¨transRecå‡½æ•°å­˜å‚¨å­˜æ¬¾è®°å½•
 		transRec("deposit " + money);
 	}
 	public void withdraw(double money) throws CheckingWithdraw {
-		//È¡¿îº¯Êı£¬Èç¹ûÓà¶î³ä×ã£¬´ÓÓà¶î¼õÈ¥ÒªÈ¡×ßµÄ½ğ¶îmoney£»·ñÔò±¨´í£¬ÌáÊ¾Óà¶îÁ¿
+		//å–æ¬¾å‡½æ•°ï¼Œå¦‚æœä½™é¢å……è¶³ï¼Œä»ä½™é¢å‡å»è¦å–èµ°çš„é‡‘é¢moneyï¼›å¦åˆ™æŠ¥é”™ï¼Œæç¤ºä½™é¢é‡
 		if(balance > money){
 			balance -= money;
-			//µ÷ÓÃtransRecº¯Êı´æ´¢È¡¿î¼ÇÂ¼
+			//è°ƒç”¨transRecå‡½æ•°å­˜å‚¨å–æ¬¾è®°å½•
 			transRec("withdraw " + money);
 		}			
 		else{
 			throw new CheckingWithdraw("Error:account is overdrawn!");
 		}
-		//²»ÓÃÒì³£´¦ÀíÊ±¿ÉÊ¹ÓÃÒÔÏÂ´úÂë
+		//ä¸ç”¨å¼‚å¸¸å¤„ç†æ—¶å¯ä½¿ç”¨ä»¥ä¸‹ä»£ç 
 		//	System.out.println("balance is not enough!"
 		//			+ "Please withdraw less than "+balance);
 	}
 	public double getBalance() {
-		//·µ»Øµ±Ç°ÕË»§Óà¶î
+		//è¿”å›å½“å‰è´¦æˆ·ä½™é¢
 		return balance;
 	}
 	public void transRec(String info) {
-		//´æ´¢´æÈ¡¿î½»Ò×¼ÇÂ¼ÓÚÁĞ±írecordÖĞ		
+		//å­˜å‚¨å­˜å–æ¬¾äº¤æ˜“è®°å½•äºåˆ—è¡¨recordä¸­		
 		record.add(info);
 	}
 	public void printTrans() {
 		int num = record.size();
 		if(num < 6){
-			//Èç¹û¼ÇÂ¼Ğ¡ÓÚ6£¬Ö±½Ó´òÓ¡£»·ñÔòÖ»´òÓ¡×î½üµÄ6Ìõ¼ÇÂ¼
+			//å¦‚æœè®°å½•å°äº6ï¼Œç›´æ¥æ‰“å°ï¼›å¦åˆ™åªæ‰“å°æœ€è¿‘çš„6æ¡è®°å½•
 			for(int i = num-1; i >= 0; i--)
 				System.out.println(i+":"+record.get(i));
 		}
@@ -65,22 +65,22 @@ public class BankAccount {
 		}
 	}
 	public static void main(String[] args) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		
-		//¹ØÓÚÒì³£´¦ÀíµÄ²âÊÔ´úÂë
+		//å…³äºå¼‚å¸¸å¤„ç†çš„æµ‹è¯•ä»£ç 
 		
 		try{
 			BankAccount Tom = new BankAccount("Tom", 1000);
 			
-			//CheckingAccount ³õÊ¼»¯Òì³£´¦Àí²âÊÔ
+			//CheckingAccount åˆå§‹åŒ–å¼‚å¸¸å¤„ç†æµ‹è¯•
 			//BankAccount John = new BankAccount("John", -1000);
 			
 			Tom.deposit(500);
 			
-			//CheckingAccount×ÓÀàCheckingDeposit ´æ¿îÒì³£´¦Àí²âÊÔ
+			//CheckingAccountå­ç±»CheckingDeposit å­˜æ¬¾å¼‚å¸¸å¤„ç†æµ‹è¯•
 			//Tom.deposit(-100);
 			
-			//CheckingAccount×ÓÀàCheckingWithdraw È¡¿î½ğ¶îÒì³£´¦Àí²âÊÔ
+			//CheckingAccountå­ç±»CheckingWithdraw å–æ¬¾é‡‘é¢å¼‚å¸¸å¤„ç†æµ‹è¯•
 			Tom.withdraw(1600);
 		}catch(CheckingDeposit e){
 			e.printStackTrace();
@@ -99,46 +99,46 @@ public class BankAccount {
 		
 		
 /*		
-		// ÆÕÍ¨²âÊÔ´úÂë
+		// æ™®é€šæµ‹è¯•ä»£ç 
 		
-		//BankAccountÀàµÚÒ»¸öÕË»§
+		//BankAccountç±»ç¬¬ä¸€ä¸ªè´¦æˆ·
 		BankAccount person1 = new BankAccount("person1", 1000);
-		person1.deposit(1000);//1´æ¿î	
-		person1.withdraw(1300);//1È¡¿î
-		person1.withdraw(900);//1È¡¿î
-		person1.deposit(200);//1´æ¿î
-		person1.withdraw(300);//1È¡¿î
-		person1.withdraw(100);//1È¡¿î
-		person1.deposit(700);//1´æ¿î
-		person1.deposit(10);//1´æ¿î
-		person1.printTrans();//´òÓ¡1½»Ò×¼ÇÂ¼
-		//´òÓ¡1Óà¶î
+		person1.deposit(1000);//1å­˜æ¬¾	
+		person1.withdraw(1300);//1å–æ¬¾
+		person1.withdraw(900);//1å–æ¬¾
+		person1.deposit(200);//1å­˜æ¬¾
+		person1.withdraw(300);//1å–æ¬¾
+		person1.withdraw(100);//1å–æ¬¾
+		person1.deposit(700);//1å­˜æ¬¾
+		person1.deposit(10);//1å­˜æ¬¾
+		person1.printTrans();//æ‰“å°1äº¤æ˜“è®°å½•
+		//æ‰“å°1ä½™é¢
 		System.out.println("balance is "+ person1.getBalance());
 		
-		//BankAccountÀàĞÍµÚ2¸öÕË»§
+		//BankAccountç±»å‹ç¬¬2ä¸ªè´¦æˆ·
 		System.out.println();
 		BankAccount person2 = new BankAccount("person2", 100);
-		person2.withdraw(50);//2È¡¿î
-		person2.printTrans();//´òÓ¡2½»Ò×¼ÇÂ¼
+		person2.withdraw(50);//2å–æ¬¾
+		person2.printTrans();//æ‰“å°2äº¤æ˜“è®°å½•
 		
-		//CashAccountÀàĞÍÕË»§3
+		//CashAccountç±»å‹è´¦æˆ·3
 		System.out.println();
 		CashAccount person3 = new CashAccount("person3", 1500);
-		person3.deposit(500);//3´æ¿î
-		//²éÑ¯3Óà¶î
+		person3.deposit(500);//3å­˜æ¬¾
+		//æŸ¥è¯¢3ä½™é¢
 		System.out.println(person3.getBalance());
 		
-		//CreditAccountÀàĞÍÕË»§4
+		//CreditAccountç±»å‹è´¦æˆ·4
 		System.out.println();
 		CreditAccount person4 = new CreditAccount("person4", 200);
-		person4.borrow(100);//4½è¿î
-		person4.borrow(110);//4½è¿î
-		person4.repay(100);//4»¹¿î
-		person4.borrow(50);//4½è¿î
-		person4.decideCredit();//4ĞÅÓş·Ö
-		person4.printTrans();//4½»Ò×¼ÇÂ¼
+		person4.borrow(100);//4å€Ÿæ¬¾
+		person4.borrow(110);//4å€Ÿæ¬¾
+		person4.repay(100);//4è¿˜æ¬¾
+		person4.borrow(50);//4å€Ÿæ¬¾
+		person4.decideCredit();//4ä¿¡èª‰åˆ†
+		person4.printTrans();//4äº¤æ˜“è®°å½•
 				
-		//´òÓ¡×ÜÕË»§ÊıÁ¿
+		//æ‰“å°æ€»è´¦æˆ·æ•°é‡
 		System.out.println();
 		System.out.println("the number of account is: "+accNum);
 */
